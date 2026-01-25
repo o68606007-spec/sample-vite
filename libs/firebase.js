@@ -18,7 +18,8 @@ const config = {
 // export default firebase;
 
 // 初期化
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(config);
 
 // Analytics 初期化（ブラウザ環境のみ）
 const analytics = getAnalytics(app);
+export default analytics;

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { getAllTodos } from "../utils/supabasefunctions";
 import { supabase } from "../utils/supabase";
+// import styled from "styled-components";
+import classes from "./CSSModules.module.scss";
 
 export const App = () => {
   const [studyContent, setStudyContent] = useState("");
@@ -87,7 +89,7 @@ export const App = () => {
 
   return (
     <div>
-      <h1>学習記録一覧</h1>
+      <h1 className={classes.h1}>学習記録一覧</h1>
       学習内容
       <input onChange={studyContents} value={studyContent} />
       学習時間
@@ -101,6 +103,7 @@ export const App = () => {
             <div key={todo.id}>
               <li>{todo.studyContent}</li>
               <button
+                className={classes.button}
                 onClick={() => {
                   deleteContent(todo.id);
                 }}
@@ -112,7 +115,9 @@ export const App = () => {
           </>
         );
       })}
-      <button onClick={addContent}>登録</button>
+      <button className={classes.button} onClick={addContent}>
+        登録
+      </button>
       <ul>
         {records.map((record) => {
           return (

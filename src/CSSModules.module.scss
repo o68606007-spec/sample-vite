@@ -1,0 +1,11 @@
+.h1 {
+  color: #3084a8;
+}
+
+.button {
+  padding: 8px;
+  & hover {
+    background-color: #464646;
+    cursor: pointer;
+  }
+}

@@ -7,7 +7,7 @@ import analytics from "../libs/firebase";
 
 // 本番環境のみ計測
 if (process.env.NODE_ENV === "production") {
-  analytics.analytics();
+  // analytics.analytics();
 }
 
 createRoot(document.getElementById("root")).render(

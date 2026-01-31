@@ -1,10 +1,30 @@
-name: Hello World
+# name: Hello World
 
+# on:
+#   workflow_dispatch:
+
+# jobs:
+#   say_hello:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "Hello World!"
+
+name: Hello World Workflow
+
+# トリガー設定: mainブランチへのpush時に実行
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  say_hello:
-    runs-on: ubuntu-latest
+  hello:
+    runs-on: ubuntu-latest # 実行環境
     steps:
-      - run: echo "Hello World!"
+      # リポジトリのコードをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Hello World を出力
+      - name: Print Hello World
+        run: echo "Hello, World!"

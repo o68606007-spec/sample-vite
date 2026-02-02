@@ -1,14 +1,3 @@
-# name: Hello World
-
-# on:
-#   workflow_dispatch:
-
-# jobs:
-#   say_hello:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "Hello World!"
-
 # name: Hello World Workflow
 
 # # トリガー設定: mainブランチへのpush時に実行
@@ -28,7 +17,7 @@
 #       # Hello World を出力
 #       - name: Print Hello World
 #         run: echo "Hello, World!2"
-name: Scheduled deploy
+name: Scheduled deploy2
 
 on:
   push:

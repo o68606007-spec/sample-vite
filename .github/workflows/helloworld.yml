@@ -63,7 +63,7 @@ jobs:
       # - name: change space
       #   run: ./node_modules/.bin/firebase use ${{ secrets.FIREBASE_PROJECT_ID }}
 
-      # Firebaseプロジェクトの設定
+      # Firebaseプロジェクトの設定 GCP変更
       - name: Set Firebase project
         run: ./node_modules/.bin/firebase use --add ${{ secrets.FIREBASE_PROJECT_ID }}
 

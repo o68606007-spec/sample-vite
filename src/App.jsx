@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import classes from "./App.css";
+import "./App.css";
 import { getAllTodos } from "../utils/supabasefunctions";
 import { supabase } from "../utils/supabase";
 // import styled from "styled-components";
-// import classes from "./CSSModules.module.scss";
+import classes from "./CSSModules.module.scss";
 
 export const App = () => {
   const [studyContent, setStudyContent] = useState("");

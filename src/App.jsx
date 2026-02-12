@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import classes from "./App.css";
 import { getAllTodos } from "../utils/supabasefunctions";
 import { supabase } from "../utils/supabase";
 // import styled from "styled-components";
-import classes from "./CSSModules.module.scss";
+// import classes from "./CSSModules.module.scss";
 
 export const App = () => {
   const [studyContent, setStudyContent] = useState("");
@@ -13,7 +13,8 @@ export const App = () => {
   const [todos, setTodos] = useState([]);
   const [loading, setIsLoading] = useState(true);
 
-  const defaultContent = studyContent == "" && studyTime == 0;
+  // const defaultContent = studyContent == "" && studyTime == 0;
+  const defaultContent = !studyContent || !studyTime;
 
   const studyContents = (event) => {
     setStudyContent(event.target.value);
@@ -89,11 +90,22 @@ export const App = () => {
 
   return (
     <div>
-      <h1 className={classes.h1}>学習記録一覧</h1>
+      <h1 className={classes.h1} data-testid="title">
+        学習記録一覧
+      </h1>
       学習内容
-      <input onChange={studyContents} value={studyContent} />
+      <input
+        onChange={studyContents}
+        value={studyContent}
+        data-testid="topic-input"
+      />
       学習時間
-      <input type="number" onChange={studyTimes} value={studyTime} />
+      <input
+        type="number"
+        onChange={studyTimes}
+        value={studyTime}
+        data-testid="time-input"
+      />
       時間
       <p>入力されている学習内容:{studyContent}</p>
       <p>入力されている時間:{studyTime} 時間</p>
@@ -102,6 +114,7 @@ export const App = () => {
           <>
             <div key={todo.id}>
               <li>{todo.studyContent}</li>
+              <li>{todo.studyTime}</li>
               <button
                 className={classes.button}
                 onClick={() => {
@@ -110,23 +123,23 @@ export const App = () => {
               >
                 削除
               </button>
-              <li>{todo.studyTime}</li>
             </div>
           </>
         );
       })}
-      <button className={classes.button} onClick={addContent}>
+      <button className={classes.button} onClick={addContent} data-testid="add">
         登録
       </button>
       <ul>
         {records.map((record) => {
           return (
-            <li key={record.studyContent}>
-              {error && <p>{error}</p>}
+            <li key={record.studyContent} data-testid="study-item">
+              {/* {error && <p data-testid="error">{error}</p>} */}
               {record.studyContent}, {record.studyTime}時間
             </li>
           );
         })}
+        {error && <p data-testid="error">{error}</p>}
         <p>
           合計時間:{" "}
           {todos.reduce((total, todo) => {

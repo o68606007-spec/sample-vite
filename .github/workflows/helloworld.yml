@@ -33,7 +33,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "22"
       - name: Install dependencies
         run: npm install
       - name: Check environment variables # 環境変数が設定されているか確認

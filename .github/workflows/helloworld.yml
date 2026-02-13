@@ -44,6 +44,14 @@ jobs:
       - name: Run test (CI)
         run: npm test
 
+      - name: Debug env
+        run: |
+          echo "URL=$VITE_SUPABASE_URL"
+          echo "KEY=$VITE_SUPABASE_ANON_KEY"
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+
       - name: Run build
         run: npm run build
         env:

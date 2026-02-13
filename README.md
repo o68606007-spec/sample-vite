@@ -5,22 +5,22 @@
 
 環境設定の方法(.envなど)　
 このリポジトリをクローンしてください。
-https://github.com/o68606007-spec/sample-vite.git
+`git@github.com/o68606007-spec/sample-vite.git`
 
 依存関係のインストールをしてください。
-npm ci
+`npm ci`
 
 .envファイルを作成しsupabaseの設定値を入力してください
-study-recordという名前でプロジェクト名を作成してください。
-study-recordという名前のテーブルを作成し、以下のカラムを作成してください。
-プロジェクトURLとプロジェクトキーを.env内のVITE_SUPABASE_URLとVITE_SUPABASE_PROJECT_KEY変数にコピー&ペーストしてください。
+1.study-recordという名前でプロジェクト名を作成してください。
+2.study-recordという名前のテーブルを作成し、以下のカラムを作成してください。3.プロジェクトURLとプロジェクトキーを.env内のVITE_SUPABASE_URLとVITE_SUPABASE_PROJECT_KEY変数にコピー&ペーストしてください。
 
 study-record
-カラム名 型 option
-id uuid
-title varchar non null
-time int4 non null
+|カラム名 | 型 |option|
+|:--------|:----|:------|
+|id |uuid| |
+|title |varchar|non null|
+|time |int4|non null|
 
 起動の仕方
-npm run dev
+`npm run dev`
 ターミナルでURLをクリックすると、開くことができます。
